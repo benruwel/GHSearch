@@ -1,0 +1,19 @@
+
+
+//custom colors
+$independece : #33415C;
+$manatee : #979DAC;
+$blue : #023E7D;
+$true-blue : #0466C8;
+
+//background coloe
+
+html, body{
+    height: 100%;
+}
+
+body{
+    
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    background-size: cover;
+}
