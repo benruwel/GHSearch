@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path : '' , component : FormComponent},
-  {path : 'users/:username', component : UserComponent},
+  {path : 'users', component : UserComponent},
   {path : '**', redirectTo : '', pathMatch : 'full'}
 ];
 

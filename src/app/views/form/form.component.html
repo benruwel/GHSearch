@@ -6,9 +6,9 @@
         <form class="form-inline card-body">
         <legend class="form-group mb-2">Search for a user:</legend>
           <div class="form-group mx-sm-3 mb-2">
-            <input type="text" class="form-control form-control-sm" placeholder="username">
+            <input #usernameInput type="text" class="form-control form-control-sm" placeholder="username">
           </div>
-          <button type="submit" class="btn btn-sm btn-outline-primary mb-2">Search</button>
+          <button type="submit" (click)="submitName(usernameInput.value)" class="btn btn-sm btn-outline-primary mb-2">Search</button>
         </form>
         
         <hr>

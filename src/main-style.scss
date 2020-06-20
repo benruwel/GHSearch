@@ -10,6 +10,7 @@ $prussian-blue: #212D40;
 $charcoal : #364156;
 $truscan-red : #7D4E57;
 $copper-red : #D66853;
+$orange-web : #ffd153;
 //background coloe
 
 html, body{
@@ -22,9 +23,11 @@ html, body{
     color: $manatee;
 }
 input{
-    background-color: $prussian-blue;
+    background-color: $charcoal;
+    color: white;
     &:hover, &:focus{
-        background-color: $charcoal;
+        background-color: $prussian-blue;
+        color: white;
     }
 }
 hr{
