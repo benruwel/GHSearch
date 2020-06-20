@@ -6,15 +6,33 @@ $oxford-blue: #001233;
 $manatee : #979DAC;
 $blue : #023E7D;
 $true-blue : #0466C8;
-
+$prussian-blue: #212D40;
+$charcoal : #364156;
+$truscan-red : #7D4E57;
+$copper-red : #D66853;
 //background coloe
 
 html, body{
     height: 100%;
 }
-
+.card{
+    background-color: $charcoal;
+}
+.card-title {
+    color: $manatee;
+}
+input{
+    background-color: $prussian-blue;
+    &:hover, &:focus{
+        background-color: $charcoal;
+    }
+}
+hr{
+    background-color: white;
+}
 body{
-    
-    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+
+    color: whitesmoke;
+    background-color: $prussian-blue;
     background-size: cover;
 }
