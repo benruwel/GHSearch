@@ -28,7 +28,11 @@ export class UserRequestService {
     }
 
     let promise = new Promise((resolve, reject) => {
-      this.http.get<ApiResponse>(`${this.usersUrl}`).toPromise().then((response) => {
+      this.http.get<ApiResponse>(`${this.usersUrl}`, { 
+          headers : {
+          "Authorization" : `token ${environment.apiKey}`
+        }
+      }).toPromise().then((response) => {
         this.user.login = response.login
         this.user.name = response.name
         this.user.avatar_url = response.avatar_url
