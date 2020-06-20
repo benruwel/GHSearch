@@ -1,10 +1,41 @@
-@import "../../../main-style.scss";
+@import "../../../styles.scss";
 
-
-.navbar{
+.wrapper{
     display: flex;
-    justify-content: center;
+    width: 100%;
+    align-items: stretch;
+}
+.navbar{
+    width: 20vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; 
-    background-blend-mode: multiply,multiply;
+    justify-content: left;
+    background-color: $independence;
+}
+.nav-item a{
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+.navbar-brand{
+    display: flex;
+    color: whitesmoke;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 2px whitesmoke;
+}
+@media (max-width: 768px) {
+    .navbar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
 }
