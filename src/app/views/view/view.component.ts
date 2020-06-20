@@ -1,4 +1,6 @@
+import { User } from './../../user-class/user';
 import { Component, OnInit } from '@angular/core';
+import { UserRequestService } from "../../services/user-request.service";
 
 @Component({
   selector: 'app-view',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewComponent implements OnInit {
 
-  constructor() { }
+  user$ : User;
 
-  ngOnInit(): void {
+  constructor( private userRequestService : UserRequestService ) { }
+
+  ngOnInit(){
+
+    this.userRequestService.getUserInfo()
+    this.user$ = this.userRequestService.user;
+
   }
 
 }

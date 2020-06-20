@@ -14,9 +14,10 @@
                     <img src="https://avatars1.githubusercontent.com/u/53556380?v=4" class="card-img" alt="...">
                   </div>
                   <div class="col-md-7">
-                    <div class="card-body">
-                      <h5 class="card-title">username</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <div class="card-body" *ngIf="user$">
+                      <h4 class="card-title">{{ user$.name }}</h4>
+                      <h6 class="card-title">@ {{ user$.login }}</h6>
+                      <p class="card-text">{{ user$.bio }} </p>
                       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                   </div>
