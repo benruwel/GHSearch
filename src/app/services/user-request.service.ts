@@ -1,9 +1,12 @@
-import { Repo } from './../repo-class/repo';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from "../../environments/environment";
+import { map, catchError } from 'rxjs/operators';
+
+import { Repo } from './../repo-class/repo';
+import { RepoModel } from './../repo-class/repo.model';
 import { User } from '../user-class/user';
-import { map } from "rxjs/operators";
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -69,44 +72,21 @@ export class UserRequestService {
   }
 
   getRepoInfo() {
-    interface ApiResponse{
-      name : string,
-      html_url : string,
-      description : string,
-      createdAt : Date,
-      language : string
+    
+        
+         return this.http.get(`${this.usersUrl}${this.username}/repos`, { 
+            headers : {
+            "Authorization" : `token ${environment.apiKey}`
+          }
+          }).pipe(
+          map((response : RepoModel[]) => {
+            return response;
+          }), catchError(error => {
+            return throwError("No data came through", error)
+          })
+        )
 
     }
 
-        let promise = new Promise((resolve, reject) => {
-        this.http.get(`${this.usersUrl}${this.username}/repos`, { 
-          headers : {
-          "Authorization" : `token ${environment.apiKey}`
-        }
-      }).toPromise()
-
-      .then((response : Array<ApiResponse>) => {
- 
-
-        for( var i = 0; i < response.length; i ++){
-          this.repos[i].name = response[i].name
-          this.repos[i].htmlUrl = response[i].html_url
-          console.dir(this.repos[i].name);
-          this.repos[i].description = response[i].description
-          this.repos[i].createdAt = response[i].createdAt
-          this.repos[i].language = response[i].language
-        }
-
-
-        resolve()
-      },
-      error => {
-        reject(error)
-      })
-    })
-
-    return promise;
-    }
-}
-
+  }
 

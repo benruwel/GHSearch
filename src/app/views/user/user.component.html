@@ -1,6 +1,6 @@
 
 
-      <div class="form-box card" style="min-width: 800px;">
+      <div class="form-box card" style="width: 50vw;">
       
         <div class="card-body">
       
@@ -20,7 +20,7 @@
       <div *ngIf="user$">
         
         <hr>
-        <div class="card" style="max-width: 800px;">
+        <div class="card" style="width: 50vw;">
   
             <div class="row no-gutters">
               <div class="col-md-5">
@@ -55,8 +55,8 @@
 
             </div>
                 <div class="card-footer">
-                  <p>Language: <span class="badge badge-secondary">Light</span></p>
-                  <p>Created at :</p> 
+                  <p>Language: <span class="badge badge-secondary">{{ repo.language }}</span></p>
+                  <p>Created at : {{ repo.created_at }}</p> 
                 </div>
           </div>
 

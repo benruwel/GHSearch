@@ -1,7 +1,6 @@
+import { RepoModel } from './../../repo-class/repo.model';
 import { Users } from './../../user-class/user.model';
-import { Repo } from './../../repo-class/repo';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/user-class/user';
 import { UserRequestService } from 'src/app/services/user-request.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { UserRequestService } from 'src/app/services/user-request.service';
 })
 export class UserComponent implements OnInit {
 
-  repo$ : any;
+  repo$ : RepoModel[] = []
   user$ : Users
   username : string;
 
@@ -27,8 +26,10 @@ export class UserComponent implements OnInit {
     this.userRequestService.getUserInfo()
     this.user$ = this.userRequestService.user;
     
-    this.userRequestService.getRepoInfo()
-    this.repo$ = this.userRequestService.repos
+    this.userRequestService.getRepoInfo().subscribe((data : any) => {
+      this.repo$ = data
+      console.log(data);
+    })
   }
 
 }
