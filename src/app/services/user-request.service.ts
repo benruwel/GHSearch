@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from "../../environments/environment";
 import { User } from '../user-class/user';
-import { FormComponent } from "../views/form/form.component";
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +18,9 @@ export class UserRequestService {
     
    }
 
-   updateUsername(username : string) {
-     this.username = username;
-   }
+  updateUsername(username : string){
+    this.username = username;
+  }
    
   getUserInfo() {
     interface ApiResponse {
@@ -51,9 +50,14 @@ export class UserRequestService {
           this.user.bio = bioNull;
         }
 
+        console.log('User has been found')
         resolve()
       },
        error => {
+        if (error) {
+          var loginNull = "Invalid username and/or no such name";
+          this.user.login = loginNull;
+        }
         reject(error)
       })
     })

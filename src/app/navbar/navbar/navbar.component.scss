@@ -19,13 +19,35 @@
     background-color: $charcoal;
 }
 .nav-item a{
-    color: whitesmoke;
     font-size: 20px;
 }
-
+.title{
+    color: $orange-web;
+    &:hover{
+        color: $orange-web;
+        text-decoration: none;
+    }
+}
+.nav-item{
+    margin-bottom: 10px;
+}
+.nav-item a{
+    border-radius: 5px;
+    padding: 5px 40px;
+    color: $orange-web;
+    &:hover, &:active{
+        color: $orange-web;
+        text-decoration: none;
+        background-color: rgba(255, 255, 255, 0.137);
+    }
+}
+.active{
+    color: $orange-web;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.137);
+}
 .navbar-brand{
     display: flex;
-    color: $orange-web;
     flex-direction: row;
     align-items: center;
     justify-content: center;

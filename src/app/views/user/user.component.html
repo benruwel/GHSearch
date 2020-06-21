@@ -1,45 +1,44 @@
 
-<div class="form-box card" style="max-width: 400px;">
 
-  <div class="card-body">
-
-      <form class="form-inline card-body">
-      <legend class="form-group mb-2">Search for a user:</legend>
-        <div class="form-group mx-sm-3 mb-2">
-          <input type="text" class="form-control form-control-sm" name="username" [(ngModel)]="username" (keyup)="searchUsername()" placeholder="username">
+      <div class="form-box card" style="min-width: 800px;">
+      
+        <div class="card-body">
+      
+            <form class="form-inline card-body">
+            <legend class="form-group mb-2">Search for a user:</legend>
+              <div class="form-group mx-sm-3 mb-2">
+                <input type="text" class="form-control form-control-sm" name="username" [(ngModel)]="username" (keyup)="searchUsername()" placeholder="username">
+              </div>
+              <button type="submit" (click)="searchUsername()" class="btn btn-sm btn-outline-primary mb-2">Search</button>
+            </form>
+        
         </div>
-        <button type="submit" (click)="searchUsername()" class="btn btn-sm btn-outline-primary mb-2">Search</button>
-      </form>
+      
+      </div>
+      
       
       <hr>
+      <div *ngIf="user$" class="card" style="max-width: 800px;">
 
-      <form class="form-inline card-body">
-        <legend class="form-group mb-2">Search for repos:</legend>
-        <div class="form-group mx-sm-3 mb-2">
-          <input type="text" class="form-control form-control-sm" placeholder="username">
+          <div class="row no-gutters">
+            <div class="col-md-5">
+              <img src="{{ user$.avatar_url }}" class="card-img img-rsp" alt="...">
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+                <h4 class="card-title"> {{ user$.name }}</h4>
+                <h6 class="card-title">@ {{ user$.login }}</h6>
+                <hr>
+                <p class="card-text">{{ user$.bio }} </p>
+                <hr>
+                <p class="card-text"><small class="text-muted">Repositories {{ user$.repos_number }} </small></p>
+              </div>
+            </div>
+          </div>
+          
         </div>
-        <button type="submit" class="btn btn-sm btn-outline-primary mb-2">Search</button>
-      </form>
-
-  </div>
-
-</div>
 
 
-<div class="card" style="max-width: 800px;">
-    <div class="row no-gutters">
-      <div class="col-md-5">
-        <img src="{{ user$.avatar_url }}" class="card-img img-rsp" alt="...">
-      </div>
-      <div class="col-md-7">
-        <div class="card-body">
-          <h4 class="card-title"> {{ user$.name }}</h4>
-          <h6 class="card-title">@ {{ user$.login }}</h6>
-          <hr>
-          <p class="card-text">{{ user$.bio }} </p>
-          <hr>
-          <p class="card-text"><small class="text-muted">Repositories {{ user$.repos_number }} </small></p>
-        </div>
-      </div>
-    </div>
-  </div>
+
+
+  

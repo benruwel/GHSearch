@@ -16,12 +16,14 @@ export class UserComponent implements OnInit {
   constructor(private userRequestService : UserRequestService) { }
 
   ngOnInit(): void {
-    this.userRequestService.getUserInfo()
-    this.user$ = this.userRequestService.user;
+    
   }
 
   searchUsername() {
-   
+    this.userRequestService.updateUsername(this.username);
+    this.userRequestService.getUserInfo()
+    this.user$ = this.userRequestService.user;
+   console.log(this.username)
   }
 
 }

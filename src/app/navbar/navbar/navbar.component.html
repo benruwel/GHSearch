@@ -4,15 +4,14 @@
   <nav class="navbar">
       <div class="navbar-brand">
         <img src="https://img.icons8.com/bubbles/300/000000/github.png" width="75" height="75" class="d-inline-block align-top" alt="" loading="lazy">
-        <p class="title">Github Search</p> 
+        <a class="title" routerLink="">Github Search</a>
       </div>
-
+      
       <hr>
-
+      
       <ul class="nav-links list-unstyled">
-        <li class="nav-item"><a href="users">Home</a></li>
-        <li class="nav-item"><a href="">User Search</a></li>
-        <li class="nav-item"><a href="">Repo Search</a></li>
+        <li class="nav-item"><a routerLink="/users" routerLinkActive='active'>User Search</a></li>
+        <li class="nav-item"><a routerLink="/repos" routerLinkActive='active'>Repo Search</a></li>
       </ul>
 
     </nav>
