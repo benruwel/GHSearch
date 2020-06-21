@@ -1,17 +1,35 @@
 
 
-<div class="form-box card" style="max-width: 400px;">
+<div class="form-box card" style="width: 40vw;">
 
     <div class="card-body">
 
         <form class="form-inline card-body">
-          <legend class="form-group mb-2">Search for repos:</legend>
+          <legend class="form-group mb-2">Search for repos with:</legend>
           <div class="form-group mx-sm-3 mb-2">
-            <input type="text" class="form-control form-control-sm" placeholder="username">
+            <input type="text" class="form-control form-control-sm" placeholder="Term to search" name="searchTerm" [(ngModel)]="searchTerm" (keyup)="search()">
           </div>
-          <button type="submit" class="btn btn-sm btn-primary mb-2">Search</button>
+          <button type="submit" (click)="search()" class="btn btn-sm btn-outline-secondary mb-2">Search</button>
         </form>
   
     </div>
   
+  </div>
+
+  <div *ngIf="repo$">
+    <hr>
+
+    <div *ngFor="let repo of repo$" class="card repo" style="width: 40vw;" >
+      <div class="card-header">
+        <a href="{{ repo.html_url }}">{{ repo.name }}</a> 
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ repo.description }} </p>
+      </div>
+          <div class="card-footer">
+            <p>Language: <span class="badge badge-secondary">{{ repo.language }}</span></p>
+            <p>Forks <span class="badge badge-secondary">{{ repo.forks }}</span> </p> 
+          </div>
+    </div>
+
   </div>

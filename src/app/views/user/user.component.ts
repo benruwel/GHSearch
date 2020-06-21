@@ -1,3 +1,5 @@
+import { Users } from './../../user-class/user.model';
+import { Repo } from './../../repo-class/repo';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/user-class/user';
 import { UserRequestService } from 'src/app/services/user-request.service';
@@ -9,7 +11,8 @@ import { UserRequestService } from 'src/app/services/user-request.service';
 })
 export class UserComponent implements OnInit {
 
-  user$ : User;
+  repo$ : any;
+  user$ : Users
   username : string;
 
 
@@ -23,7 +26,9 @@ export class UserComponent implements OnInit {
     this.userRequestService.updateUsername(this.username);
     this.userRequestService.getUserInfo()
     this.user$ = this.userRequestService.user;
-   console.log(this.username)
+    
+    this.userRequestService.getRepoInfo()
+    this.repo$ = this.userRequestService.repos
   }
 
 }

@@ -1,7 +1,9 @@
+import { Repo } from './../repo-class/repo';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from "../../environments/environment";
 import { User } from '../user-class/user';
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +14,10 @@ export class UserRequestService {
   usersUrl = 'https://api.github.com/users/';
 
   user : User;
-
+  repos : Repo[];
   constructor(private http : HttpClient) {
-    this.user = new User("", "", "", 0, "", "")
-    
+    this.user = new User("", "", "", 0, "", "");
+    //this.repos = new Repo("", "", "", "", new Date())
    }
 
   updateUsername(username : string){
@@ -24,6 +26,7 @@ export class UserRequestService {
    
   getUserInfo() {
     interface ApiResponse {
+      
       login : string,
       name : string,
       avatar_url : string,
@@ -45,12 +48,12 @@ export class UserRequestService {
         this.user.repos_list = response.repos_url
         this.user.bio = response.bio
 
+
         if ( this.user.bio == null ) {
           var bioNull = "The user has no bio";
           this.user.bio = bioNull;
         }
 
-        console.log('User has been found')
         resolve()
       },
        error => {
@@ -62,10 +65,48 @@ export class UserRequestService {
       })
     })
 
-    console.log(promise)
-
     return promise;
-
   }
 
+  getRepoInfo() {
+    interface ApiResponse{
+      name : string,
+      html_url : string,
+      description : string,
+      createdAt : Date,
+      language : string
+
+    }
+
+        let promise = new Promise((resolve, reject) => {
+        this.http.get(`${this.usersUrl}${this.username}/repos`, { 
+          headers : {
+          "Authorization" : `token ${environment.apiKey}`
+        }
+      }).toPromise()
+
+      .then((response : Array<ApiResponse>) => {
+ 
+
+        for( var i = 0; i < response.length; i ++){
+          this.repos[i].name = response[i].name
+          this.repos[i].htmlUrl = response[i].html_url
+          console.dir(this.repos[i].name);
+          this.repos[i].description = response[i].description
+          this.repos[i].createdAt = response[i].createdAt
+          this.repos[i].language = response[i].language
+        }
+
+
+        resolve()
+      },
+      error => {
+        reject(error)
+      })
+    })
+
+    return promise;
+    }
 }
+
+
