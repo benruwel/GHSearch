@@ -46,12 +46,12 @@
         <div *ngIf="repo$">
           <hr>
 
-          <div class="card" *ngFor="let repo of repo$" >
+          <div class="card repo" *ngFor="let repo of repo$" style="width: 50vw;" >
             <div class="card-header">
-              <a href="">Repo name: {{ repo.name }} </a> 
+              <a href="{{ repo.html_url }}" target="_blank" >{{ repo.name }} </a> 
             </div>
-            <div class="card-body">
-              <p class="card-text">Repo details: {{ repo.description }} </p>
+            <div class="card-body repo-body">
+              <p class="card-text">{{ repo.description }} </p>
 
             </div>
                 <div class="card-footer">
