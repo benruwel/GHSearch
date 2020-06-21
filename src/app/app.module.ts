@@ -9,16 +9,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar/navbar.component';
 import { ViewComponent } from './views/view/view.component';
-import { FormComponent } from './views/form/form.component';
 import { UserComponent } from './views/user/user.component';
+import { ReposComponent } from './views/repos/repos.component';
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ViewComponent,
-    FormComponent,
     UserComponent,
+    ReposComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

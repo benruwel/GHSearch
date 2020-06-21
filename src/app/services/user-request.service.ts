@@ -2,21 +2,27 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from "../../environments/environment";
 import { User } from '../user-class/user';
-
+import { FormComponent } from "../views/form/form.component";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserRequestService {
 
-  usersUrl = "https://api.github.com/users/Teresia-Kirungo";
+  private username = 'Teresia-Kirungo';
+  usersUrl = 'https://api.github.com/users/';
 
   user : User;
 
   constructor(private http : HttpClient) {
     this.user = new User("", "", "", 0, "", "")
+    
    }
 
+   updateUsername(username : string) {
+     this.username = username;
+   }
+   
   getUserInfo() {
     interface ApiResponse {
       login : string,
@@ -28,7 +34,7 @@ export class UserRequestService {
     }
 
     let promise = new Promise((resolve, reject) => {
-      this.http.get<ApiResponse>(`${this.usersUrl}`, { 
+      this.http.get<ApiResponse>(`${this.usersUrl}${this.username}`, { 
           headers : {
           "Authorization" : `token ${environment.apiKey}`
         }

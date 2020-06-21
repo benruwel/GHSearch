@@ -10,12 +10,18 @@ import { UserRequestService } from 'src/app/services/user-request.service';
 export class UserComponent implements OnInit {
 
   user$ : User;
+  username : string;
+
 
   constructor(private userRequestService : UserRequestService) { }
 
   ngOnInit(): void {
     this.userRequestService.getUserInfo()
     this.user$ = this.userRequestService.user;
+  }
+
+  searchUsername() {
+   
   }
 
 }
