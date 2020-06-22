@@ -5,4 +5,5 @@ export class Users{
     public repos_number : number;
     public repos_list : string;
     public bio : string;
+    public created_at : Date;
 }

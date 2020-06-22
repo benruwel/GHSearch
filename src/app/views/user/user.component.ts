@@ -13,9 +13,12 @@ export class UserComponent implements OnInit {
   repo$ : RepoModel[] = []
   user$ : Users
   username : string;
+  public repoCount : number;
 
 
-  constructor(private userRequestService : UserRequestService) { }
+  constructor(private userRequestService : UserRequestService) { 
+    this.repoCount = 0;
+  }
 
   ngOnInit(): void {
     
@@ -25,10 +28,11 @@ export class UserComponent implements OnInit {
     this.userRequestService.updateUsername(this.username);
     this.userRequestService.getUserInfo()
     this.user$ = this.userRequestService.user;
+    this.repoCount = this.userRequestService.user.repos_number;
+
     
     this.userRequestService.getRepoInfo().subscribe((data : any) => {
       this.repo$ = data
-      console.log(data);
     })
   }
 

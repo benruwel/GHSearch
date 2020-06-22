@@ -19,7 +19,7 @@ export class UserRequestService {
   user : User;
   repos : Repo[];
   constructor(private http : HttpClient) {
-    this.user = new User("", "", "", 0, "", "");
+    this.user = new User("", "", "", 0, "", "", new Date());
     //this.repos = new Repo("", "", "", "", new Date())
    }
 
@@ -35,7 +35,8 @@ export class UserRequestService {
       avatar_url : string,
       public_repos : number,
       repos_url : string,
-      bio : string
+      bio : string,
+      created_at : Date
     }
 
     let promise = new Promise((resolve, reject) => {
@@ -50,6 +51,7 @@ export class UserRequestService {
         this.user.repos_number = response.public_repos
         this.user.repos_list = response.repos_url
         this.user.bio = response.bio
+        this.user.created_at = response.created_at;
 
 
         if ( this.user.bio == null ) {

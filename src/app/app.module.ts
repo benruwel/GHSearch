@@ -12,6 +12,7 @@ import { ViewComponent } from './views/view/view.component';
 import { UserComponent } from './views/user/user.component';
 import { ReposComponent } from './views/repos/repos.component';
 import { HomeComponent } from './views/home/home.component';
+import { RepoHighlighterDirective } from './directives/repo-highlighter.directive';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HomeComponent } from './views/home/home.component';
     UserComponent,
     ReposComponent,
     HomeComponent,
+    RepoHighlighterDirective,
   ],
   imports: [
     BrowserModule,
