@@ -1,4 +1,3 @@
-import { RepoSearch } from './../../repo-class/repo-search';
 import { RepoRequestService } from './../../services/repo-request.service';
 import { Component, OnInit } from '@angular/core';
 import { RepoSearchModel } from 'src/app/repo-class/repo-search.model';

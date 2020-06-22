@@ -34,7 +34,7 @@
                   <p class="card-text">{{ user$.bio }} </p>
                   <hr>
                   <p class="card-text" appRepoHighlighter>Repositories {{ user$.repos_number }}</p>
-                  <p class="card-text"><small class="text-muted">Joined in {{ user$.created_at }} </small></p>
+                  <p class="card-text"><small class="text-muted">Joined in {{ user$.created_at | date}} </small></p>
                 </div>
               </div>
             </div>
@@ -57,7 +57,7 @@
             </div>
                 <div class="card-footer">
                   <p>Language: <span class="badge badge-secondary">{{ repo.language }}</span></p>
-                  <p>Created at : {{ repo.created_at }}</p> 
+                  <p>Created on : {{ repo.created_at | date}}</p> 
                 </div>
           </div>
 

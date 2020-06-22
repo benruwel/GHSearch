@@ -6,3 +6,12 @@
 .repo-body{
     background-color: $independence;
 }
+.card-footer{
+    color: $manatee;
+}
+.card-header a{
+    color: $orange-web;
+    &:hover{
+        color: $orange-web;
+    }
+}

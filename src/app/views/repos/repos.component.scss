@@ -7,3 +7,13 @@
 .card-body{
     background-color: $independence;
 }
+
+.card-header a{
+    color: $orange-web;
+    &:hover{
+        color: $orange-web;
+    }
+}
+.card-footer{
+    color: $manatee;
+}
