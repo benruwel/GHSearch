@@ -143,7 +143,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Email ruwelmwangi@example.com
+Email ruwelmwangi@gmail.com
 
 Project Link: [https://github.com/benruwel/GHSearch](https://github.com/benruwel/GHSearch)
 
