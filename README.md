@@ -109,15 +109,15 @@ const API_KEY = 'ENTER YOUR API';
 _i : "benruwel"_
 
 * The username is placed at the end of the API route ~ `GET users/benruwel`
-* The result is the user's GitHub info and public repos _o : {name : string, login : string, ...}_
+* The result is the user's GitHub info and public repos in json format _o : {name : string, login : string, ...}_
 
 ### Repo Route:
 
 * Enter the term to search
 _i : "npm"_
 
-* The username is placed at the end of the API route ~ `GET /search/repositories?q=npm+in:name+in:description`
-* The result is a lsit of repos that have that term in their name and/or description
+* The search term is placed at the end of the API route with query parameters ~ `GET /search/repositories?q=npm+in:name+in:description`
+* The result is a json object of repos that have that term in their name and/or description
 
 
 <!-- CONTRIBUTING -->
